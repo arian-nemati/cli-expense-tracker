@@ -86,12 +86,12 @@ def main():
         elif choice == "2":
             while True:
                 try:
-                    index = int(input("Enter your index: "))
+                    index = int(input("Enter your number: "))
                     break
                 except ValueError:
                     print("Enter a number.")
 
-            tracker.remove_expense(index)
+            tracker.remove_expense(index + 1)
 
         elif choice == "3":
             tracker.view_expenses()
