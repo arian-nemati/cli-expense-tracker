@@ -1,10 +1,10 @@
 class Expense:
     """Add a new expense: amount, date, category, description"""
     def __init__(self, amount: int, date: str, category: str, description: str) -> None:
-        self.amount = amount
-        self.date = date
-        self.category = category
-        self.description = description
+        self._amount = amount
+        self._date = date
+        self._category = category
+        self._description = description
 
 
 class ExpenseService:
