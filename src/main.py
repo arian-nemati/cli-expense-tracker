@@ -42,19 +42,19 @@ class Expense:
 class ExpenseService:
     """Services"""
     def __init__(self):
-        self.expenses = []
+        self.expenses: list[Expense] = []
 
     def add_expense(self, expense: Expense) -> None:
         self.expenses.append(expense)
 
-    def remove_expense(self, index: int):
+    def remove_expense(self, index: int) -> str:
         if 0 <= index < len(self.expenses):
             del self.expenses[index]
             return ""
         else:
             return "Invalid number!"
 
-    def view_expenses(self):
+    def view_expenses(self) -> str:
         if len(self.expenses) == 0:
             return "No expenses!"
 
@@ -64,7 +64,7 @@ class ExpenseService:
                 all_expenses += f"{i}. {e}\n"
             return all_expenses
 
-    def total_expenses(self):
+    def total_expenses(self) -> str:
         if len(self.expenses) == 0:
             return "No expenses!"
 
