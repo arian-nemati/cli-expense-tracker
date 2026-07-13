@@ -6,6 +6,25 @@ class Expense:
         self._category = category
         self._description = description
 
+    @property
+    def amount(self):
+        return self._amount
+
+    @property
+    def date(self):
+        return self._date
+
+    @property
+    def category(self):
+        return self._category
+
+    @property
+    def description(self):
+        return self._description
+
+    def __str__(self):
+        return f"Amount: {self.amount} | Date: {self.date} | Category: {self.category} | Description: {self.description}"
+
 
 class ExpenseService:
     """Services"""
@@ -29,8 +48,7 @@ class ExpenseService:
         else:
             all_expenses = "\n---------- All Expenses ----------\n"
             for i, e in enumerate(self.expenses, start=1):
-                all_expenses += (f"{i}. Amount: {e.amount} | Date: {e.date} |"
-                                 f" Category: {e.category} | Description: {e.description}")
+                all_expenses += f"{i}. {e}"
             return all_expenses
 
     def total_expenses(self):
