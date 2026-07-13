@@ -1,6 +1,6 @@
 class Expense:
     """Add a new expense: amount, date, category, description"""
-    def __init__(self, amount, date, category, description):
+    def __init__(self, amount: int, date: str, category: str, description: str) -> None:
         self.amount = amount
         self.date = date
         self.category = category
@@ -12,10 +12,10 @@ class ExpenseService:
     def __init__(self):
         self.expenses = []
 
-    def add_expense(self, expense):
+    def add_expense(self, expense: Expense):
         self.expenses.append(expense)
 
-    def remove_expense(self, index):
+    def remove_expense(self, index: int):
         if 0 <= index < len(self.expenses):
             del self.expenses[index]
             return ""
