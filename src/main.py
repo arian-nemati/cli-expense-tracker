@@ -18,15 +18,16 @@ class ExpenseService:
     def remove_expense(self, index):
         if 0 <= index < len(self.expenses):
             del self.expenses[index]
+            return ""
         else:
-            print("Invalid number!")
+            return "Invalid number!"
 
     def view_expenses(self):
         if len(self.expenses) == 0:
             return "No expenses!"
 
         else:
-            all_expenses = "\n---------- All Expenses ----------"
+            all_expenses = "\n---------- All Expenses ----------\n"
             for i, e in enumerate(self.expenses, start=1):
                 all_expenses += (f"{i}. Amount: {e.amount} | Date: {e.date} |"
                                  f" Category: {e.category} | Description: {e.description}")
@@ -34,10 +35,11 @@ class ExpenseService:
 
     def total_expenses(self):
         if len(self.expenses) == 0:
-            print("No expenses!")
+            return "No expenses!"
 
         else:
             categories = dict()
+            text = ""
 
             for e in self.expenses:
                 if e.category not in categories:
@@ -47,14 +49,16 @@ class ExpenseService:
                     categories[e.category] += e.amount
 
             for k, v in categories.items():
-                print(f"{k}: {v}")
+                text += f"{k}: {v}"
 
             all_sum = 0
             for e in self.expenses:
                 all_sum += e.amount
 
-            print("------------------------------")
-            print(f"Total Expenses: {all_sum}")
+            text += "------------------------------"
+            text += f"Total Expenses: {all_sum}"
+
+            return text
 
 
 def main():
@@ -92,7 +96,7 @@ def main():
                 except ValueError:
                     print("Enter a number.")
 
-            tracker.remove_expense(index + 1)
+            print(tracker.remove_expense(index + 1))
 
         elif choice == "3":
             print(tracker.view_expenses())
