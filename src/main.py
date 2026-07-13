@@ -48,7 +48,7 @@ class ExpenseService:
         else:
             all_expenses = "\n---------- All Expenses ----------\n"
             for i, e in enumerate(self.expenses, start=1):
-                all_expenses += f"{i}. {e}"
+                all_expenses += f"{i}. {e}\n"
             return all_expenses
 
     def total_expenses(self):
