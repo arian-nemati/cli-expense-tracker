@@ -67,13 +67,13 @@ class ExpenseService:
                     categories[e.category] += e.amount
 
             for k, v in categories.items():
-                text += f"{k}: {v}"
+                text += f"{k}: {v}\n"
 
             all_sum = 0
             for e in self.expenses:
                 all_sum += e.amount
 
-            text += "------------------------------"
+            text += "------------------------------\n"
             text += f"Total Expenses: {all_sum}"
 
             return text
@@ -123,7 +123,7 @@ def main():
             print(tracker.total_expenses())
 
         elif choice == "5":
-            print("\nThank you for using our application. Goodbye!")
+            print("\n--- Thank you for using our application. Goodbye!")
             break
 
         else:
