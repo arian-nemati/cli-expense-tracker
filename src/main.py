@@ -7,22 +7,22 @@ class Expense:
         self._description = description
 
     @property
-    def amount(self):
+    def amount(self) -> int:
         return self._amount
 
     @property
-    def date(self):
+    def date(self) -> str:
         return self._date
 
     @property
-    def category(self):
+    def category(self) -> str:
         return self._category
 
     @property
-    def description(self):
+    def description(self) -> str:
         return self._description
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"Amount: {self.amount} | Date: {self.date} | Category: {self.category} | Description: {self.description}"
 
 
@@ -31,7 +31,7 @@ class ExpenseService:
     def __init__(self):
         self.expenses = []
 
-    def add_expense(self, expense: Expense):
+    def add_expense(self, expense: Expense) -> None:
         self.expenses.append(expense)
 
     def remove_expense(self, index: int):
