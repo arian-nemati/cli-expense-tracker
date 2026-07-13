@@ -96,7 +96,7 @@ def main():
                 except ValueError:
                     print("Enter a number.")
 
-            print(tracker.remove_expense(index + 1))
+            print(tracker.remove_expense(index - 1))
 
         elif choice == "3":
             print(tracker.view_expenses())
