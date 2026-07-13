@@ -1,6 +1,5 @@
 class Expense:
     """Add a new expense: amount, date, category, description"""
-
     def __init__(self, amount, date, category, description):
         self.amount = amount
         self.date = date
@@ -10,7 +9,6 @@ class Expense:
 
 class ExpenseService:
     """Services"""
-
     def __init__(self):
         self.expenses = []
 
@@ -21,14 +19,14 @@ class ExpenseService:
         if 0 <= index < len(self.expenses):
             del self.expenses[index]
         else:
-            print("Invalid index")
+            print("Invalid number!")
 
     def view_expenses(self):
         if len(self.expenses) == 0:
             print("No expenses!")
 
         else:
-            print("\n--- All Expenses ---")
+            print("\n---------- All Expenses ----------")
             for i, e in enumerate(self.expenses, start=1):
                 print(f"{i}. Amount: {e.amount}, Date: {e.date}, Category: {e.category}, Description: {e.description}")
 
@@ -53,11 +51,12 @@ class ExpenseService:
             for e in self.expenses:
                 all_sum += e.amount
 
-            print("--------------")
+            print("------------------------------")
             print(f"Total Expenses: {all_sum}")
 
 
 def main():
+    """Main function of the project"""
     tracker = ExpenseService()
 
     while True:
