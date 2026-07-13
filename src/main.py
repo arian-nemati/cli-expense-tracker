@@ -102,7 +102,7 @@ def main():
             print(tracker.view_expenses())
 
         elif choice == "4":
-            tracker.total_expenses()
+            print(tracker.total_expenses())
 
         elif choice == "5":
             print("\nThank you for using our application. Goodbye!")
