@@ -23,12 +23,14 @@ class ExpenseService:
 
     def view_expenses(self):
         if len(self.expenses) == 0:
-            print("No expenses!")
+            return "No expenses!"
 
         else:
-            print("\n---------- All Expenses ----------")
+            all_expenses = "\n---------- All Expenses ----------"
             for i, e in enumerate(self.expenses, start=1):
-                print(f"{i}. Amount: {e.amount}, Date: {e.date}, Category: {e.category}, Description: {e.description}")
+                all_expenses += (f"{i}. Amount: {e.amount} | Date: {e.date} |"
+                                 f" Category: {e.category} | Description: {e.description}")
+            return all_expenses
 
     def total_expenses(self):
         if len(self.expenses) == 0:
@@ -93,7 +95,7 @@ def main():
             tracker.remove_expense(index + 1)
 
         elif choice == "3":
-            tracker.view_expenses()
+            print(tracker.view_expenses())
 
         elif choice == "4":
             tracker.total_expenses()
