@@ -1,7 +1,14 @@
 class Expense:
     """Add a new expense: amount, date, category, description"""
-    def __init__(self, amount: int, date: str, category: str, description: str) -> None:
-        self._amount = amount
+    def __init__(
+        self,
+        amount: int,
+        date: str,
+        category: str,
+        description: str
+    ) -> None:
+
+        self.amount = amount
         self._date = date
         self._category = category
         self._description = description
@@ -9,6 +16,12 @@ class Expense:
     @property
     def amount(self) -> int:
         return self._amount
+
+    @amount.setter
+    def amount(self, value: int) -> None:
+        if value < 0:
+            raise ValueError("Expense amount cannot be negative")
+        self._amount = value
 
     @property
     def date(self) -> str:
